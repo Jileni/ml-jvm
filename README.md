@@ -1,4 +1,4 @@
-# Deep Learning in Javas Virtual Maschine
+# Deep Learning in Javas Virtual Machine
 
 #### Data
 

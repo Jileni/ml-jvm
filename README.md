@@ -18,11 +18,14 @@ implements this model with DeepLearning4J.
 ![net](docs/net.png)
 
 #### Train and test model
+To train and test this model, simply run the JUnit test [de.htwk.ml.deep.NetworkTest](https://github.com/erohkohl/ml-jvm/blob/master/src/test/java/de/htwk/ml/deep/NetworkTest.java) in your IDE or with Maven.
 
 #### One vs. all
 For classification neural nets apply an *one vs all* vote, where all neurons in its output layer take part. Therefore 
 their weights and biases form a linear separators in hyper space and compare one neurons decision against all others, like
-the below picture shows.
+the below picture shows. Thus the softmax function serves a probability for each class based one neurons vote.
 ![one vs all](docs/one_vs_all.png)
 
-
+#### Results
+In all my model reaches an accuracy of over 97% on the training set after 20000 iterations and predicts three of five meals
+of the test set correct.

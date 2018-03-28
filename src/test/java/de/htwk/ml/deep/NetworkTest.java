@@ -2,7 +2,7 @@ package de.htwk.ml.deep;
 
 import de.htwk.ml.model.Meal;
 import de.htwk.ml.model.Menu;
-import de.htwk.ml.util.Html;
+import de.htwk.ml.util.CSV;
 import de.htwk.ml.util.MenuToVec;
 import org.deeplearning4j.nn.multilayer.MultiLayerNetwork;
 import org.junit.BeforeClass;
@@ -25,8 +25,11 @@ public class NetworkTest {
         final int preMeals = 4;
         model = new Network(preMeals);
 
-        final List<Menu> menus = Html.extract(11, 12);
-        menus.remove(0);
+        final List<Menu> menus = CSV._import("menu.csv");
+        int n_train = menus.size() - 10;
+        for (int i = 0; i <= n_train; i++) {
+            menus.remove(0);    //remove already seen data
+        }
         final int[][][] menusVec = MenuToVec.convert(menus, preMeals);
 
         int nbrTest = 5;

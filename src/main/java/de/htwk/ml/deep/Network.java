@@ -1,6 +1,7 @@
 package de.htwk.ml.deep;
 
 import de.htwk.ml.model.Menu;
+import de.htwk.ml.util.CSV;
 import de.htwk.ml.util.Html;
 import de.htwk.ml.util.MenuToVec;
 import org.deeplearning4j.eval.Evaluation;
@@ -24,7 +25,10 @@ public class Network {
     private final double LEARNING_RATE = 0.01;
 
     public Network(int preMeals) {
-        List<Menu> menus = Html.extract(4, 11);
+        List<Menu> menus = CSV._import("menu.csv");
+        for (int i = 0; i <= 5; i++){
+            menus.remove(menus.size() - 1); // remove test data sets
+        }
         int[][][] menusVec = MenuToVec.convert(menus, preMeals);
         int trainNbr = menusVec.length;
         int inputSize = menusVec[0][0].length;

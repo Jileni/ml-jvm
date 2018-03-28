@@ -18,7 +18,7 @@ import java.util.List;
 
 public class CSV {
 
-    private static final String PATH = "src/main/resources/";
+    private static final String PATH = "data/";
 
     public static boolean export(List<Menu> menuList, String fileName) {
         try {

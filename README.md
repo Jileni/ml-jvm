@@ -12,11 +12,17 @@ pork (*Schwein*) and beef (*Rind*).
 Although the model learns sequential data, this project uses a fully-connected multi-layer-perceptron, to map this correlation, and leaves out
 recurrent neural networks. The below picture shows the network architecture based on the day of week and previous two meals as input vector. 
 Thus nets input layer hold eleven neurons and has three output neurons with softmax activation, for classification purpose. Further the net
-consists of two hidden layers with 14 neurons in each, where every neuron as an ReLU activation.
+consists of two hidden layers with 14 neurons in each, where every neuron as an ReLU activation. The Java class [de.htwk.ml.deep.Network](https://github.com/erohkohl/ml-jvm/blob/master/src/main/java/de/htwk/ml/deep/Network.java)
+implements this model with DeepLearning4J.
 
 ![net](docs/net.png)
 
+#### Train and test model
+
 #### One vs. all
+For classification neural nets apply an *one vs all* vote, where all neurons in its output layer take part. Therefore 
+their weights and biases form a linear separators in hyper space and compare one neurons decision against all others, like
+the below picture shows.
 ![one vs all](docs/one_vs_all.png)
 
-#### Train and test model
+

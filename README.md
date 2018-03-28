@@ -25,6 +25,7 @@ To train and test this model, simply run the JUnit test [de.htwk.ml.deep.Network
 For classification neural nets apply an *one vs all* vote, where all neurons in its output layer take part. Therefore 
 their weights and biases form linear separators in hyper space and compare one neurons decision against all others, like
 the below picture shows for the 2d space. Thus the softmax function serves a probability for each class based on neurons vote.
+
 ![one vs all](docs/one_vs_all.png)
 
 #### Results
